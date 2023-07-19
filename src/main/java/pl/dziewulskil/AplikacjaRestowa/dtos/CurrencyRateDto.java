@@ -1,15 +1,17 @@
 package pl.dziewulskil.AplikacjaRestowa.dtos;
 
-import lombok.AccessLevel;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.experimental.FieldDefaults;
 
 @Builder
-@Getter
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class CurrencyRateDto {
-    String currency;
-    String code;
-    double mid;
+public record CurrencyRateDto(String currency,
+                              String code,
+                              double mid) {
+
+    public CurrencyRateDto(double mid) {
+        this(null, null, mid);
+    }
+
+    public CurrencyRateDto(String code) {
+        this(null, code, 0);
+    }
 }

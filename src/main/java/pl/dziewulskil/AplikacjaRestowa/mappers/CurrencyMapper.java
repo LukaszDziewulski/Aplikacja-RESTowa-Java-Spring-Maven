@@ -14,7 +14,7 @@ public class CurrencyMapper {
 
     public ValueDto mapToValueDto(CurrencyRateDto currencyRateDto) {
         return ValueDto.builder()
-                .value(currencyRateDto.getMid())
+                .value(currencyRateDto.mid())
                 .build();
     }
 
@@ -23,8 +23,8 @@ public class CurrencyMapper {
                 .firstname(currencyInfoRequest.getFirstname())
                 .lastname(currencyInfoRequest.getLastname())
                 .code(currencyInfoRequest.getCode())
-                .currency(currencyRateDto.getCurrency())
-                .value(currencyRateDto.getMid())
+                .currency(currencyRateDto.currency())
+                .value(currencyRateDto.mid())
                 .build();
     }
 

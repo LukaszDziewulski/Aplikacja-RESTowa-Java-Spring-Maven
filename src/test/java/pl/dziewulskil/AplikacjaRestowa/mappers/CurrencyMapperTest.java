@@ -24,15 +24,13 @@ class CurrencyMapperTest {
     @Test
     void mapToValueDtoTest() {
         // given
-        CurrencyRateDto currencyRateDto = CurrencyRateDto.builder()
-                .mid(3.4562)
-                .build();
+        CurrencyRateDto currencyRateDto = new CurrencyRateDto(3.4562);
 
         // when
         ValueDto result = currencyMapper.mapToValueDto(currencyRateDto);
 
         // then
-        assertEquals(result.getValue(), currencyRateDto.getMid());
+        assertEquals(result.getValue(), currencyRateDto.mid());
     }
 
     @Test
@@ -44,9 +42,7 @@ class CurrencyMapperTest {
                 .code("USD")
                 .build();
 
-        CurrencyRateDto currencyRateDto = CurrencyRateDto.builder()
-                .mid(3.4562)
-                .build();
+        CurrencyRateDto currencyRateDto = new CurrencyRateDto(3.4562);
 
         // when
         CurrencyEntity result = currencyMapper.mapToCurrencyEntity(currencyInfoRequest,currencyRateDto);
@@ -55,7 +51,7 @@ class CurrencyMapperTest {
         assertEquals(result.getFirstname(), currencyInfoRequest.getFirstname());
         assertEquals(result.getLastname(), currencyInfoRequest.getLastname());
         assertEquals(result.getCode(), currencyInfoRequest.getCode());
-        assertEquals(result.getValue(), currencyRateDto.getMid());
+        assertEquals(result.getValue(), currencyRateDto.mid());
     }
 
     @Test

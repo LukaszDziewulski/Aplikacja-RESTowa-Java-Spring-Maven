@@ -44,9 +44,7 @@ class CurrencyServiceTest {
         CurrencyInfoRequest currencyInfoRequest = CurrencyInfoRequest.builder()
                 .code("USD")
                 .build();
-        CurrencyRateDto currencyRateDto = CurrencyRateDto.builder()
-                .code("USD")
-                .build();
+        CurrencyRateDto currencyRateDto = new CurrencyRateDto("USD");
 
         List<CurrencyRateDto> rates = Collections.singletonList(currencyRateDto);
         CurrencyTableDto currencyTableDto = new CurrencyTableDto(rates);
