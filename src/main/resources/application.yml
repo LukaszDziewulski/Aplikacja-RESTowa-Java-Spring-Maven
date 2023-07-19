@@ -1,0 +1,6 @@
+spring:
+  config.import:
+    - classpath:properties/persistence.yml
+
+
+server.port: 8080
