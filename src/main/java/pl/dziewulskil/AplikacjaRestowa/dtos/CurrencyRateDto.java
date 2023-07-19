@@ -1,6 +1,15 @@
 package pl.dziewulskil.AplikacjaRestowa.dtos;
 
-public record CurrencyRateDto(String currency,
-                              String code,
-                              double mid) {
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.experimental.FieldDefaults;
+
+@Builder
+@Getter
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class CurrencyRateDto {
+    String currency;
+    String code;
+    double mid;
 }

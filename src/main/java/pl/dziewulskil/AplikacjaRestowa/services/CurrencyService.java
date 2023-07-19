@@ -29,7 +29,7 @@ public class CurrencyService {
             CurrencyTableDto currencyTableDto = currencyTableDtoList.get(0);
             List<CurrencyRateDto> rates = currencyTableDto.rates();
             CurrencyRateDto currencyRateDto = rates.stream()
-                    .filter(currencyRateDto1 -> currencyRateDto1.code().equals(currencyInfoRequest.getCode()))
+                    .filter(currencyRateDto1 -> currencyRateDto1.getCode().equals(currencyInfoRequest.getCode()))
                     .findFirst()
                     .orElseThrow(() -> new RestApplicationException("Code not found"));
             currencyRepository.save(currencyMapper.mapToCurrencyEntity(currencyInfoRequest, currencyRateDto));
