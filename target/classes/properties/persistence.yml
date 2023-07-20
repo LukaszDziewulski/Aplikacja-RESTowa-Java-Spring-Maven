@@ -1,0 +1,33 @@
+spring:
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/changelog-master.xml
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+---
+
+spring:
+  datasource:
+    url: jdbc:mysql://${app.db.host}/${app.db.name}?sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false
+    username: ${app.db.username}
+    password: ${app.db.password}
+
+---
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+
+
+app.db:
+  host: localhost:3306
+  name: AplikacjaRestowa
+  username: root
+  password: admin
+
+
